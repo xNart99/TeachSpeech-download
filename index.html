@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tải TeachSpeech cho Mac</title>
-<meta name="description" content="Phụ đề bài giảng trực tiếp, dịch tiếng Việt và ghi chú bài học trên Mac.">
+<title>TeachSpeech for Mac</title>
+<meta name="description" content="Live class captions, Vietnamese translation and lesson notes on your Mac.">
 <style>
 :root {
   color-scheme: light dark;
@@ -12,12 +12,10 @@
   --muted: #565a62;
   --line: #e6e6e2;
   --paper: #ffffff;
-  --soft: #f5f5f2;
+  --soft: #f1f1ee;
   --accent: #1d5fcc;
   --accent-hover: #174ca3;
   --on-accent: #ffffff;
-  --warning: #8f3f00;
-  --warning-soft: #fff3e6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -25,11 +23,9 @@
     --muted: #a4a8b0;
     --line: #34363b;
     --paper: #1b1c1f;
-    --soft: #26272b;
+    --soft: #2a2b30;
     --accent: #2f73e0;
     --accent-hover: #4a87e8;
-    --warning: #ffb877;
-    --warning-soft: #3a2a1b;
   }
 }
 * { box-sizing: border-box; }
@@ -37,62 +33,25 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
 }
-main { max-width: 680px; margin: 0 auto; padding: 56px 20px 64px; }
-h1 { margin: 0; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; }
-.lead { margin: 12px 0 28px; font-size: 20px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
+main { max-width: 520px; margin: 0 auto; padding: 72px 20px 48px; }
+h1 { margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; }
+.lead { margin: 10px 0 24px; font-size: 18px; color: var(--muted); }
 .download {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 52px; padding: 0 28px; border-radius: 10px;
+  min-height: 50px; padding: 0 28px; border-radius: 10px;
   background: var(--accent); color: var(--on-accent);
-  font-size: 18px; font-weight: 600; text-decoration: none;
+  font-size: 17px; font-weight: 600; text-decoration: none;
 }
 .download:hover { background: var(--accent-hover); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.meta { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
-.not-mac {
-  display: none; margin: 20px 0 0; padding: 12px 14px; border-radius: 8px;
-  background: var(--warning-soft); color: var(--warning); font-size: 15px;
-}
-section { margin-top: 44px; }
-h2 { margin: 0 0 14px; font-size: 23px; line-height: 1.25; }
-ol, ul { margin: 0; padding: 0; list-style: none; }
-ol { counter-reset: step; }
-ol > li {
-  counter-increment: step; position: relative;
-  padding: 14px 0 14px 44px; border-top: 1px solid var(--line);
-}
-ol > li::before {
-  content: counter(step); position: absolute; left: 0; top: 14px;
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--soft); color: var(--accent);
-  font-size: 15px; font-weight: 700; line-height: 28px; text-align: center;
-}
-li strong { display: block; }
-ul > li { position: relative; padding: 6px 0 6px 18px; }
-ul > li::before {
-  content: ""; position: absolute; left: 2px; top: 17px;
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-}
-.button-name { font-weight: 600; white-space: nowrap; }
-.help { margin-top: 18px; padding: 16px; border-radius: 10px; background: var(--warning-soft); }
-.help h3 { margin: 0 0 4px; font-size: 16px; color: var(--warning); }
-.help p { margin: 0 0 10px; font-size: 15px; }
-.command { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-code {
-  flex: 1 1 260px; min-width: 0; padding: 9px 10px; border-radius: 6px;
-  background: var(--paper); font: 13px/1.4 ui-monospace, Menlo, monospace; overflow-wrap: anywhere;
-}
-.copy {
-  min-height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 6px;
-  background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
-}
-footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.version { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+ul { margin: 36px 0 0; padding: 18px 0 0 18px; border-top: 1px solid var(--line); font-size: 15px; }
+li { margin: 8px 0; padding-left: 2px; }
+code { padding: 2px 5px; border-radius: 4px; background: var(--soft); font: 13px ui-monospace, Menlo, monospace; overflow-wrap: anywhere; }
 @media (max-width: 480px) {
-  main { padding-top: 36px; }
-  h1 { font-size: 34px; }
-  .lead { font-size: 18px; }
+  main { padding-top: 44px; }
   .download { width: 100%; }
 }
 </style>
@@ -100,61 +59,16 @@ footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
 <body>
 <main>
   <h1>TeachSpeech</h1>
-  <p class="lead">Nghe giảng tiếng Anh có phụ đề trực tiếp, dịch sang tiếng Việt và có sẵn ghi chú để tối về học.</p>
-  <a class="download" href="https://github.com/xNart99/TeachSpeech-download/releases/latest/download/TeachSpeech.zip">Tải về cho Mac</a>
-  <p class="meta">Phiên bản 0.1.0, 11 MB. Cần Mac chip M (M1 trở lên), macOS 15 trở lên và khoảng 2 GB trống.</p>
-  <p class="not-mac" id="not-mac">App này chỉ chạy trên Mac. Hãy mở trang này bằng máy Mac để tải.</p>
-
-  <section>
-    <h2>Cài đặt</h2>
-    <ol>
-      <li><strong>Mở file vừa tải</strong>Vào thư mục Downloads. Nếu thấy TeachSpeech.zip thì bấm đúp để giải nén.</li>
-      <li><strong>Kéo TeachSpeech vào Applications</strong>Mở Finder, kéo biểu tượng TeachSpeech vào mục Applications ở cột bên trái.</li>
-      <li><strong>Mở app lần đầu</strong>Bấm đúp vào TeachSpeech. Mac sẽ báo chưa kiểm tra được app, đây là chuyện bình thường. Bấm <span class="button-name">Done</span>.</li>
-      <li><strong>Cho phép mở app</strong>Vào <span class="button-name">System Settings</span>, chọn <span class="button-name">Privacy &amp; Security</span>, kéo xuống phần Security rồi bấm <span class="button-name">Open Anyway</span>. Bấm <span class="button-name">Open Anyway</span> thêm lần nữa và nhập mật khẩu Mac.</li>
-    </ol>
-    <div class="help">
-      <h3>Nếu Mac báo app bị hỏng (“is damaged”)</h3>
-      <p>Mở app Terminal, dán dòng dưới đây, bấm Enter rồi mở lại TeachSpeech.</p>
-      <div class="command">
-        <code id="fix">xattr -cr /Applications/TeachSpeech.app</code>
-        <button class="copy" id="copy" type="button">Sao chép</button>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Chuẩn bị ở nhà, chỉ một lần</h2>
-    <ol>
-      <li><strong>Tải bộ nhận giọng nói</strong>Ở dòng Speech and voice models, bấm <span class="button-name">Download</span>. Khoảng 1,3 GB nên nhớ dùng Wi-Fi.</li>
-      <li><strong>Tải tiếng Việt</strong>Ở dòng Vietnamese translation, bấm <span class="button-name">Download</span>.</li>
-      <li><strong>Cho phép dùng micro</strong>Ở dòng Microphone, bấm <span class="button-name">Allow</span>. Xong bấm <span class="button-name">Done</span>.</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Khi đi học</h2>
-    <ul>
-      <li>Bấm <span class="button-name">Start class</span> khi thầy bắt đầu giảng. Lúc này không cần mạng.</li>
-      <li>Phụ đề nổi trên màn hình. Kéo để di chuyển, kéo cạnh hoặc góc để đổi kích thước.</li>
-      <li>Không hiểu câu nào thì bấm <span class="button-name">I didn't get that</span> để tối xem lại.</li>
-      <li>Hết giờ bấm <span class="button-name">End class</span>. App tự làm ghi chú của buổi học.</li>
-    </ul>
-  </section>
-
-  <footer>Nhớ xin phép thầy trước khi ghi âm. Phụ đề và ghi chú có thể nghe sai, nên hãy kiểm tra số liệu với tài liệu của lớp.</footer>
+  <p class="lead">Live class captions and lesson notes for Mac.</p>
+  <a class="download" href="https://github.com/xNart99/TeachSpeech-download/releases/latest/download/TeachSpeech.zip">Download for Mac</a>
+  <p class="version">Version 0.1.0, 11 MB</p>
+  <ul>
+    <li>Needs an M-series Mac with macOS 15 or later.</li>
+    <li>Unzip it and drag TeachSpeech to Applications.</li>
+    <li>If macOS blocks it, go to System Settings &gt; Privacy &amp; Security &gt; Open Anyway.</li>
+    <li>If macOS says it is damaged, run <code>xattr -cr /Applications/TeachSpeech.app</code> in Terminal.</li>
+    <li>On first launch, download the speech models (1.3 GB) on Wi-Fi.</li>
+  </ul>
 </main>
-<script>
-if (!/Macintosh/.test(navigator.userAgent)) {
-  document.getElementById('not-mac').style.display = 'block';
-}
-document.getElementById('copy').addEventListener('click', function () {
-  var button = this;
-  navigator.clipboard.writeText(document.getElementById('fix').textContent).then(function () {
-    button.textContent = 'Đã chép';
-    setTimeout(function () { button.textContent = 'Sao chép'; }, 2000);
-  });
-});
-</script>
 </body>
 </html>
